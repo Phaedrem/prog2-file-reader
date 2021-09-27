@@ -14,11 +14,11 @@ int main(int argc, char** argv) {
         if(myfile.is_open()){
             display_file(myfile);    
         } else {
-            cout << "file doesn't exist" << endl;
+            cout << "invalid filename: " << argv[1] << endl;
         }
         myfile.close();
     } else {
-        cout << "it didn't work" << endl;
+        cout << "usage: " << argv[0] << " filename" << endl;
     }
 
     return 0;
