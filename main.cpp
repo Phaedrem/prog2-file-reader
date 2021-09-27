@@ -11,7 +11,11 @@ int main(int argc, char** argv) {
     fstream myfile;
     if(argc == 2){
         myfile.open(argv[1]);
-        cout << "it worked" << endl;
+        if(myfile.is_open()){
+            display_file(myfile);    
+        } else {
+            cout << "file doesn't exist" << endl;
+        }
         myfile.close();
     } else {
         cout << "it didn't work" << endl;
