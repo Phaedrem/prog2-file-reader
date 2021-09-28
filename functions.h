@@ -16,7 +16,8 @@ using std::endl;
 using std::fstream;
 using std::string;
 
-int count_characters(string);
+int count_non_space(string);
+int count_spaces(string);
 void display_file(fstream&);
 
 #endif //COMMANDLINE_FUNCTIONS_H
