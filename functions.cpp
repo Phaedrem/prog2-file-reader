@@ -30,7 +30,11 @@ void display_file(fstream &fin){
     string line;
     int character_count = 0;
     while (getline(fin, line)) {
+        if(line.size() == 0){
+            cout << "[ blank Line ]" << endl;
+        } else{
         character_count = count_non_space(line)-count_spaces(line);
-        cout << line << " [" << character_count << " chars]" << endl;
+        cout << line << " [" << character_count << " letters, " << count_spaces(line) << " spaces, " << endl;
+        }
     }
 }
