@@ -8,8 +8,12 @@ Purpose: Program to import a file from command line and analyze its contents.
 
 int count_non_space(string line){
     int count = 0;
-    while(line[count] != '\0'){
-        count++;
+    int i = 0;
+    while(line[i] != '\0'){
+        if(line[i] >= 'a' && line[i] <= 'z' || line[i] >= 'A' && line[i] <= 'Z'){
+            count++;
+        }
+        i++;
     }
     return count;
 }
@@ -28,15 +32,13 @@ int count_spaces(string line){
 
 void display_file(fstream &fin){
     string line;
-    int character_count = 0;
     int wordCount = 0;
     while (getline(fin, line)) {
         if(line.size() == 0){
             cout << "[ blank Line ]" << endl;
         } else{
-        character_count = count_non_space(line)-count_spaces(line);
         wordCount = 1+count_spaces(line);
-        cout << line << " [" << character_count << " letters, " << count_spaces(line) << " spaces, " << wordCount << " words]" << endl;
+        cout << line << " [" << count_non_space(line) << " letters, " << count_spaces(line) << " spaces, " << wordCount << " words]" << endl;
         }
     }
 }
