@@ -33,12 +33,14 @@ int count_spaces(string line){
 void display_file(fstream &fin){
     string line;
     int wordCount = 0;
+    int i = 0;
     while (getline(fin, line)) {
+        i++;
         if(line.size() == 0){
-            cout << "[ blank Line ]" << endl;
+            cout << i-1 << ": [ blank Line ]" << endl;
         } else{
         wordCount = 1+count_spaces(line);
-        cout << line << " [" << count_non_space(line) << " letters, " << count_spaces(line) << " spaces, " << wordCount << " words]" << endl;
+        cout << i-1 << ": " << line << " [" << count_non_space(line) << " letters, " << count_spaces(line) << " spaces, " << wordCount << " words]" << endl;
         }
     }
 }
